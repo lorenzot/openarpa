@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<APIProxy revision="1" name="openarpa">
+    <ConfigurationVersion majorVersion="4" minorVersion="0"/>
+    <CreatedAt>1422022010113</CreatedAt>
+    <CreatedBy>me@gzileni.name</CreatedBy>
+    <Description>Server nodejs to read ARPA's Data</Description>
+    <DisplayName>openarpa</DisplayName>
+    <LastModifiedAt>1422022010113</LastModifiedAt>
+    <LastModifiedBy>gzileni@icloud.com</LastModifiedBy>
+    <Policies/>
+    <ProxyEndpoints>
+        <ProxyEndpoint>default</ProxyEndpoint>
+    </ProxyEndpoints>
+    <Resources>
+        <Resource>node://package.json</Resource>
+        <Resource>node://server-usergrid.js</Resource>
+    </Resources>
+    <TargetServers/>
+    <TargetEndpoints>
+        <TargetEndpoint>default</TargetEndpoint>
+    </TargetEndpoints>
+</APIProxy>
