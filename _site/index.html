@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta "name"=""description"" content="Server REST API dedicato al monitoraggio dei dati ambientali.">
+  <meta "name"="viewport" content="width=device-width, initial-scale=1.0">
+  <title>openARPA</title>
+  <link href="//fonts.googleapis.com/css?family=Roboto:400,400italic,700" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/syntax.css">
+  <link rel="stylesheet" href="css/solo.css">
+
+</head>
+<body>
+  <div class="container">
+    <h1><a href="./">openARPA</a></h1>
+    <h3>/v1 rev.17</h3>
+    <hr />  
+    <p><a href="http://opendatabari.github.io/openpuglia">openARPA</a> ha l’obiettivo di fornire dati aperti dell’agenzia regionale pugliese <a href="http://www.arpa.puglia.it/web/guest/arpa_home">ARPA</a> preposta all’esercizio di attività e compiti in materia di prevenzione e tutela ambientale.</p>
+
+<iframe src="http://ghbtns.com/github-btn.html?user=opendatabari &amp;repo=openARPA&amp;type=watch&amp;count=true&amp;size=large" allowtransparency="true" frameborder="0" scrolling="0" width="170" height="30"></iframe>
+<p><br /></p>
+
+<p><img src="http://127.0.0.1:4000/img/ilva.jpg" alt="ARPA" />  </p>
+
+<h2 id="dati-arpa">Dati ARPA</h2>
+
+<p><a href="http://www.arpa.puglia.it/web/guest/chi_siamo">ARPA Puglia</a>, Agenzia Regionale per la Prevenzione e la Protezione dell’Ambiente, è Organo Tecnico della Regione Puglia, istituito e disciplinato con Legge Regionale 22 gennaio 1999, n. 6, così come modificata dalla Legge Regionale 4 ottobre 2006, n. 27, di seguito denominata legge istitutiva.</p>
+
+<p><img src="http://127.0.0.1:4000/img/logo-arpa-small.jpg" alt="ARPA" /></p>
+
+<ul>
+  <li>
+    <p><a href="http://www.arpa.puglia.it/c/document_library/get_file?uuid=8ba309ba-713d-46a2-9d5c-d8bfcf4cc766&amp;groupId=13883">Rete di monitoraggio</a>: Rete di monitoraggio della qualità dell’aria</p>
+  </li>
+  <li>
+    <p><a href="http://www.arpa.puglia.it/web/guest/aria_monit">Serie storiche</a>: Ogni giorno dell’anno ha 24 dati, uno per ogni ora, che è la media oraria di quell’inquinante per quell’ora. I dati sono gli stessi pubblicati da Ispra nel progetto <a href="http://www.brace.sinanet.apat.it/web/struttura.html">Brace</a>.</p>
+  </li>
+  <li>
+    <p><a href="http://www.arpa.puglia.it/web/guest/qariainq">Dati giornalieri</a>: Dati raccolti giorno x giorno attraverso le centraline di rilevamento. </p>
+  </li>
+  <li>
+    <p><a href="http://www.arpa.puglia.it/web/guest/aria_doc_rapp">Documentazione</a>(PDF)</p>
+  </li>
+</ul>
+
+<h2 id="architettura">Architettura</h2>
+<p><img src="http://127.0.0.1:4000/img/openARPA.png" alt="openARPA" /> </p>
+
+<h2 id="dataset">Dataset</h2>
+<ul>
+  <li>
+    <p><a href="http://dati.openbsk.it/dataset/monitoraggio-aria">Centraline di monitoraggio ARPA</a></p>
+  </li>
+  <li>
+    <p><a href="http://dati.openbsk.it/dataset/inquinanti-atmosferici">Inquinanti Atmosferici</a></p>
+  </li>
+</ul>
+
+<p><img src="http://127.0.0.1:4000/img/openbsk.png" alt="openARPA" /></p>
+
+<h2 id="api">API</h2>
+
+<ul>
+  <li>
+    <p><a href="http://openpuglia-prod.apigee.net/arpa/v1/monitoring/json">/monitoring/json</a>: Monitoraggio giornaliero dei dati sulla qualità dell’aria. </p>
+  </li>
+  <li>
+    <p><a href="http://openpuglia-prod.apigee.net/arpa/v1/monitoring/geojson">/monitoring/geojson</a>: Monitoraggio giornaliero dei dati sulla qualità dell’aria in formato <a href="http://geojson.org">geojson</a></p>
+  </li>
+  <li>
+    <p><a href="http://openpuglia-prod.apigee.net/arpa/v1/warning/json">/warning/json</a>: Monitoraggio giornaliero dei dati sulla qualità dell’aria che hanno superato il valore limite.</p>
+  </li>
+  <li>
+    <p><a href="http://openpuglia-prod.apigee.net/arpa/v1/warning/json">/warning/geojson</a>: Monitoraggio giornaliero dei dati sulla qualità dell’aria che hanno superato il valore limite, in formato <a href="http://geojson.org">geojson</a>.</p>
+  </li>
+  <li>
+    <p>/history (coming soon…): Visualizzazione serie storica giornaliera e confronto con le serie storiche degli anni precedenti.</p>
+  </li>
+</ul>
+
+<h2 id="demohttp1270014000openarpaindexhtml"><a href="http://127.0.0.1:4000/openarpa/index.html">Demo</a></h2>
+
+<h2 id="infohttpsgithubcomopendatabariopenarpa"><a href="https://github.com/opendatabari/openARPA">Info</a></h2>
+
+<h2 id="dipendenze">Dipendenze</h2>
+<ul>
+  <li><a href="https://github.com/opendatabari/openARPA-scrape">openarpa-scrape</a> </li>
+</ul>
+
+<h2 id="author">Author</h2>
+
+<p>openPuglia (<a href="http://opendatabari.github.io/openpuglia">Web</a>/<a href="http://opendatabari.github.io/blog/">Blog</a>/<a href="http://twitter.com/odpuglia">Twitter</a>/<a href="http://github.com/opendatabari">GitHub</a>/<a href="https://plus.google.com/u/0/communities/114201169795304528470">G+</a>/<a href="https://www.facebook.com/groups/1582370461982907/">Facebook</a>/<a href="https://www.linkedin.com/groups?home=&amp;gid=8227043&amp;trk=my_groups-tile-grp">LinkedIN</a>)</p>
+
+<p><img src="http://127.0.0.1:4000/img/logo-openpuglia-small.jpg" alt="openPuglia" /></p>
+
+<h2 id="developers">Developers</h2>
+
+<ul>
+  <li>Vincenzo Patruno, Data Analyst <a href="https://github.com/patrunomeister">GitHub</a></li>
+  <li>Pietro Blu Giandonato, Data Analyst <a href="&#109;&#097;&#105;&#108;&#116;&#111;:&#112;&#046;&#103;&#105;&#097;&#110;&#100;&#111;&#110;&#097;&#116;&#111;&#064;&#103;&#109;&#097;&#105;&#108;&#046;&#099;&#111;&#109;">Mail</a></li>
+  <li>Catonano Vincenzo, Data Analyst <a href="&#109;&#097;&#105;&#108;&#116;&#111;:&#099;&#097;&#116;&#111;&#110;&#097;&#110;&#111;&#064;&#103;&#109;&#097;&#105;&#108;&#046;&#099;&#111;&#109;">Mail</a></li>
+  <li>Marco Fago - IT Engineering <a href="https://github.com/marfago">GitHub</a></li>
+  <li>Giuseppe Zileni - Developers, API Designer, Web Specialist (<a href="http://twitter.com/gzileni">Twitter</a>/<a href="http://github.com/giuseppezileni">GitHub</a>/<a href="https://plus.google.com/u/0/+GiuseppeZileni/posts">G+</a>).</li>
+</ul>
+
+<h3 id="license">License</h3>
+
+<p><a href="http://en.wikipedia.org/wiki/Creative_Commons_license">CC 1.0</a></p>
+
+<div class="github-fork-ribbon-wrapper right fixed" style="width: 150px;height: 150px;position: fixed;overflow: hidden;top: 0;z-index: 9999;pointer-events: none;right: 0;"><div class="github-fork-ribbon" style="position: absolute;padding: 2px 0;background-color: #333;background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.15));-webkit-box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.5);-moz-box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.5);box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.5);z-index: 9999;pointer-events: auto;top: 42px;right: -43px;-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);-ms-transform: rotate(45deg);-o-transform: rotate(45deg);transform: rotate(45deg);"><a href="https://github.com/opendatabari/openARPA" style="font: 700 13px &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif;color: #fff;text-decoration: none;text-shadow: 0 -1px rgba(0, 0, 0, 0.5);text-align: center;width: 200px;line-height: 20px;display: inline-block;padding: 2px 0;border-width: 1px 0;border-style: dotted;border-color: rgba(255, 255, 255, 0.7);">Fork me on GitHub</a></div></div>
+
+  </div>
+
+</body>
+</html>
