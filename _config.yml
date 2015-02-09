@@ -3,7 +3,7 @@ title: openARPA
 tag_text: openARPA
 version:  /v1 rev.17
 "description": Server REST API dedicato al monitoraggio dei dati ambientali.
-url: http://opendatabari.github.io/openARPA-site
+url: http://opendatabari.github.io/openarpa
 #url: http://127.0.0.1:4000
 
 # Build settings
