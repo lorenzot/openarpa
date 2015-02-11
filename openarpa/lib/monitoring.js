@@ -1,6 +1,9 @@
 'use strict';
 
 $( document ).ready( function () {
+    
+    var type = getUrlParameter('type');
+    var url = arpa_data.get(type, false);
 
     $('#loader_div').show();
     $('#error').hide();
@@ -23,13 +26,6 @@ $( document ).ready( function () {
                 {
         attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(map);
-    
-    var url_monitoring = "http://openpuglia-prod.apigee.net/arpa/v1/warning";
-    var url_monitoring_geojson = "http://openpuglia-prod.apigee.net/arpa/v1/warning/geojson";
-    var url_warning = "http://openpuglia-prod.apigee.net/arpa/v1/warning";
-    var url_warning_geojson = "http://openpuglia-prod.apigee.net/arpa/v1/warning/geojson";
-    var url_localhost = "http://localhost:3000/monitoring";
-    var url_geojson = "http://dati.openbsk.it/dataset/e1887afc-345a-43ae-b9f8-95b5515eb6df/resource/8df7cff6-7605-456d-9d33-238d7905c115/download/arpacentraline.geojson";
         
     $("#header").empty();    
     $("#poll").empty();
@@ -44,7 +40,7 @@ $( document ).ready( function () {
 
     console.log('getting data by ' + url_monitoring_geojson);
     
-    var geojsonTileLayer = new L.TileLayer.GeoJSON(url_monitoring_geojson, {
+    var geojsonTileLayer = new L.TileLayer.GeoJSON(url, {
             clipTiles: true,
             unique: function (feature) {
                 return feature.citta; 
@@ -151,3 +147,46 @@ $( document ).ready( function () {
     };
     
 });
+
+function getUrlParameter(sParam)
+{
+    var sPageURL = window.location.search.substring(1);
+    var sURLVariables = sPageURL.split('&');
+    for (var i = 0; i < sURLVariables.length; i++) 
+    {
+        var sParameterName = sURLVariables[i].split('=');
+        if (sParameterName[0] == sParam) 
+        {
+            return sParameterName[1];
+        }
+    }
+};  
+
+var arpa_data = {
+    url_monitoring: '/monitoring',
+    url_monitoring_geojson: '/monitoring/geojson',
+    url_warning: '/warning',
+    url_warning_geojson: '/warning/geojson',
+    url_localhost: 'http://localhost:3000',
+    url_endpoints: 'http://openpuglia-prod.apigee.net/arpa/v1',
+    url_dataset: 'http://dati.openbsk.it/dataset/e1887afc-345a-43ae-b9f8-95b5515eb6df/resource/8df7cff6-7605-456d-9d33-238d7905c115/download/arpacentraline.geojson',
+    get: function(type, localhost) {
+        var url;
+        var self = this;
+        
+        url = self.url_endpoints;
+        
+        if (localhost) {
+            url = self.url_localhost;
+        };
+        
+        if (type == 'monitoring') {
+            url += self.url_monitoring_geojson;    
+        } else if (type == 'warning') {
+            url += self.url_warning_geojson;
+        };
+        
+        return url;
+    };
+    
+}

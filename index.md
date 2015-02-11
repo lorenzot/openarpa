@@ -36,22 +36,23 @@ layout: default
 ![openARPA]({{ site.url }}/img/openbsk.png)
 
 
-
-## API
+## Endpoints API
 
 * [/monitoring/json](http://openpuglia-prod.apigee.net/arpa/v1/monitoring/json): Monitoraggio giornaliero dei dati sulla qualità dell'aria. 
 
 * [/monitoring/geojson](http://openpuglia-prod.apigee.net/arpa/v1/monitoring/geojson): Monitoraggio giornaliero dei dati sulla qualità dell'aria in formato [geojson](http://geojson.org)
 
+    [Demo]({{ site.url }}/openarpa/index.html?type=monitoring)
+    [Info](https://github.com/opendatabari/openARPA)
+
 * [/warning/json](http://openpuglia-prod.apigee.net/arpa/v1/warning/json): Monitoraggio giornaliero dei dati sulla qualità dell'aria che hanno superato il valore limite.
 
 * [/warning/geojson](http://openpuglia-prod.apigee.net/arpa/v1/warning/json): Monitoraggio giornaliero dei dati sulla qualità dell'aria che hanno superato il valore limite, in formato [geojson](http://geojson.org).
 
+    [Demo]({{ site.url }}/openarpa/index.html?type=warning)
+    [Info](https://github.com/opendatabari/openARPA)
+
 * /history (coming soon...): Visualizzazione serie storica giornaliera e confronto con le serie storiche degli anni precedenti.
-
-## [Demo]({{ site.url }}/openarpa/index.html)
-
-## [Info](https://github.com/opendatabari/openARPA)
 
 ## Dipendenze
 * [openarpa-scrape](https://github.com/opendatabari/openARPA-scrape) 
