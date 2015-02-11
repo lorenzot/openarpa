@@ -168,7 +168,7 @@ var arpa_data = {
     url_warning: '/warning',
     url_warning_geojson: '/warning/geojson',
     url_localhost: 'http://localhost:3000',
-    url_endpoints: 'http://openpuglia-prod.apigee.net/arpa/v1',
+    url_endpoints: 'http://openpuglia-test.apigee.net/arpa/v1',
     url_dataset: 'http://dati.openbsk.it/dataset/e1887afc-345a-43ae-b9f8-95b5515eb6df/resource/8df7cff6-7605-456d-9d33-238d7905c115/download/arpacentraline.geojson',
     get: function(type, localhost) {
         var url;
