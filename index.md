@@ -38,7 +38,14 @@ layout: default
 
 ## Endpoints API
 
-* [/warning/json](http://openpuglia-prod.apigee.net/arpa/v1/warning/json): Monitoraggio giornaliero dei dati sulla qualità dell'aria che hanno superato il valore limite.
+* [/monitoring/json](http://openpuglia-prod.apigee.net/arpa/v1/monitoring/json): Monitoraggio giornaliero dei dati sulla qualità dell'aria completo di dato meteo.
+
+* [/monitoring/geojson](http://openpuglia-prod.apigee.net/arpa/v1/monitoring/geojson): Monitoraggio giornaliero dei dati sulla qualità dell'aria in formato [geojson](http://geojson.org)
+
+    [Demo]({{ site.url }}/openarpa/index.html?type=monitoring)
+    [Info](https://github.com/opendatabari/openARPA)
+
+* [/warning/json](http://openpuglia-prod.apigee.net/arpa/v1/warning/json): Monitoraggio giornaliero dei dati sulla qualità dell'aria che hanno superato il valore limite, completi di dati meteo.
 
 * [/warning/geojson](http://openpuglia-prod.apigee.net/arpa/v1/warning/geojson): Monitoraggio giornaliero dei dati sulla qualità dell'aria che hanno superato il valore limite, in formato [geojson](http://geojson.org).
 
