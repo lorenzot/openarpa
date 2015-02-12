@@ -14,6 +14,13 @@ app.get('/hello', function(req, res) {
     res.send('Hello from openARPA!!');
 });
 
+app.get('/amianto', function(req, res) {
+    res.writeHead(200, {"Content-Type" : "application/json"});
+    openarpa.amianto(function (data) {
+        res.end(JSON.stringify(data) + '\n');    
+    });
+});
+
 app.get('/monitoring/:format', function(req, res) {
     res.writeHead(200, {"Content-Type" : "application/json"});
     openarpa.monitoring(false, req.params.format, function (data) {
@@ -53,6 +60,11 @@ console.log('or server test: curl ' + testhost + m);
 
 console.log('-----------------------------------\n');
 var m = '/warning/geojson\n';
+console.log('try this: curl ' + lhost + m);
+console.log('or server test: curl ' + testhost + m);
+
+console.log('-----------------------------------\n');
+var m = '/amianto\n';
 console.log('try this: curl ' + lhost + m);
 console.log('or server test: curl ' + testhost + m);
 
