@@ -15,7 +15,7 @@
 <body>
   <div class="container">
     <h1><a href="./">openARPA</a></h1>
-    <h3>/v1 rev.17</h3>
+    <h3>0.2.0</h3>
     <hr />  
     <p><a href="http://opendatabari.github.io/openpuglia">openARPA</a> ha l’obiettivo di fornire dati aperti dell’agenzia regionale pugliese <a href="http://www.arpa.puglia.it/web/guest/arpa_home">ARPA</a> preposta all’esercizio di attività e compiti in materia di prevenzione e tutela ambientale.</p>
 
@@ -60,29 +60,29 @@
 
 <p><img src="http://127.0.0.1:4000/img/openbsk.png" alt="openARPA" /></p>
 
-<h2 id="api">API</h2>
+<h2 id="endpoints-api">Endpoints API</h2>
 
 <ul>
-  <li>
-    <p><a href="http://openpuglia-prod.apigee.net/arpa/v1/monitoring/json">/monitoring/json</a>: Monitoraggio giornaliero dei dati sulla qualità dell’aria. </p>
-  </li>
-  <li>
-    <p><a href="http://openpuglia-prod.apigee.net/arpa/v1/monitoring/geojson">/monitoring/geojson</a>: Monitoraggio giornaliero dei dati sulla qualità dell’aria in formato <a href="http://geojson.org">geojson</a></p>
-  </li>
   <li>
     <p><a href="http://openpuglia-prod.apigee.net/arpa/v1/warning/json">/warning/json</a>: Monitoraggio giornaliero dei dati sulla qualità dell’aria che hanno superato il valore limite.</p>
   </li>
   <li>
-    <p><a href="http://openpuglia-prod.apigee.net/arpa/v1/warning/json">/warning/geojson</a>: Monitoraggio giornaliero dei dati sulla qualità dell’aria che hanno superato il valore limite, in formato <a href="http://geojson.org">geojson</a>.</p>
+    <p><a href="http://openpuglia-prod.apigee.net/arpa/v1/warning/geojson">/warning/geojson</a>: Monitoraggio giornaliero dei dati sulla qualità dell’aria che hanno superato il valore limite, in formato <a href="http://geojson.org">geojson</a>.</p>
+
+    <p><a href="http://127.0.0.1:4000/openarpa/index.html?type=warning">Demo</a>
+  <a href="https://github.com/opendatabari/openARPA">Info</a></p>
+  </li>
+  <li>
+    <p><a href="http://openpuglia-prod.apigee.net/arpa/v1/amianto">/amianto</a>: Restituisce dati geojson per visualizzare una mappa con tutti i siti inquinanti di amianto</p>
+
+    <p><a href="http://dati.openbsk.it/dataset/amianto/resource/9eed961a-5e9a-4e21-89a9-c5a345fff65b">Dataset</a>
+  <a href="http://opendatabari.github.io/blog/civic%20hacking/2013/11/24/come-organizzare-una-passeggiata-di-monitoraggio-una-ricerca-sullilva.html">Info</a>
+  <a href="http://127.0.0.1:4000/openarpa/index.html?type=amianto">Demo</a></p>
   </li>
   <li>
     <p>/history (coming soon…): Visualizzazione serie storica giornaliera e confronto con le serie storiche degli anni precedenti.</p>
   </li>
 </ul>
-
-<h2 id="demohttp1270014000openarpaindexhtml"><a href="http://127.0.0.1:4000/openarpa/index.html">Demo</a></h2>
-
-<h2 id="infohttpsgithubcomopendatabariopenarpa"><a href="https://github.com/opendatabari/openARPA">Info</a></h2>
 
 <h2 id="dipendenze">Dipendenze</h2>
 <ul>

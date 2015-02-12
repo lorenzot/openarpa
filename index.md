@@ -38,19 +38,18 @@ layout: default
 
 ## Endpoints API
 
-* [/monitoring/json](http://openpuglia-prod.apigee.net/arpa/v1/monitoring/json): Monitoraggio giornaliero dei dati sulla qualità dell'aria. 
-
-* [/monitoring/geojson](http://openpuglia-prod.apigee.net/arpa/v1/monitoring/geojson): Monitoraggio giornaliero dei dati sulla qualità dell'aria in formato [geojson](http://geojson.org)
-
-    [Demo]({{ site.url }}/openarpa/index.html?type=monitoring)
-    [Info](https://github.com/opendatabari/openARPA)
-
 * [/warning/json](http://openpuglia-prod.apigee.net/arpa/v1/warning/json): Monitoraggio giornaliero dei dati sulla qualità dell'aria che hanno superato il valore limite.
 
-* [/warning/geojson](http://openpuglia-prod.apigee.net/arpa/v1/warning/json): Monitoraggio giornaliero dei dati sulla qualità dell'aria che hanno superato il valore limite, in formato [geojson](http://geojson.org).
+* [/warning/geojson](http://openpuglia-prod.apigee.net/arpa/v1/warning/geojson): Monitoraggio giornaliero dei dati sulla qualità dell'aria che hanno superato il valore limite, in formato [geojson](http://geojson.org).
 
     [Demo]({{ site.url }}/openarpa/index.html?type=warning)
     [Info](https://github.com/opendatabari/openARPA)
+
+* [/amianto](http://openpuglia-prod.apigee.net/arpa/v1/amianto): Restituisce dati geojson per visualizzare una mappa con tutti i siti inquinanti di amianto
+
+    [Dataset](http://dati.openbsk.it/dataset/amianto/resource/9eed961a-5e9a-4e21-89a9-c5a345fff65b)
+    [Info](http://opendatabari.github.io/blog/civic%20hacking/2013/11/24/come-organizzare-una-passeggiata-di-monitoraggio-una-ricerca-sullilva.html)
+    [Demo]({{ site.url }}/openarpa/index.html?type=amianto)
 
 * /history (coming soon...): Visualizzazione serie storica giornaliera e confronto con le serie storiche degli anni precedenti.
 
