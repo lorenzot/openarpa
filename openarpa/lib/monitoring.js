@@ -51,17 +51,23 @@ $( document ).ready( function () {
         L.geoJson(geojson, {
             pointToLayer: function (feature, latlng) {
                 
+                var radius = 4;
+                
+                if (feature.properties.radius > 4) {
+                    radius = feature.properties.radius;        
+                };
+                
                 var options = {
                     opacity: 0.1,
                     clickable: true,
-                    color: getColorbyWarn(feature.properties.warning_value),
+                    color: feature.properties.color,
                     fillOpacity: 0.1
                 };
 
                 console.log(JSON.stringify(feature.properties));
                 
                 var circle_point = L.circleMarker(latlng, options);
-                circle_point.setRadius(feature.properties.radius);
+                circle_point.setRadius(radius);
                 circle_point.bindPopup(feature.properties.title);
                 
                 return circle_point;
