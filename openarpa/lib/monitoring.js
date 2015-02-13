@@ -86,7 +86,7 @@ $( document ).ready( function () {
                 var options = {
                     opacity: 0.1,
                     clickable: true,
-                    color: feature.properties.color,
+                    color: getColorbyWarn(feature.properties.warning_value),
                     fillOpacity: 0.1
                 };
                 
