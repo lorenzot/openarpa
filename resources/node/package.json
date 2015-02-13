@@ -1,6 +1,6 @@
 {
   "name": "openARPA",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "description": "oopenData by ARPA",
   "main": "server-usergrid.js",
   "dependencies": {
