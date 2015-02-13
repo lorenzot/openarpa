@@ -21,6 +21,13 @@ app.get('/amianto', function(req, res) {
     });
 });
 
+app.get('/taranto', function(req, res) {
+    res.writeHead(200, {"Content-Type" : "application/json"});
+    openarpa.taranto(function (data) {
+        res.end(JSON.stringify(data) + '\n');    
+    });
+});
+
 app.get('/monitoring/:format', function(req, res) {
     res.writeHead(200, {"Content-Type" : "application/json"});
     openarpa.monitoring(false, req.params.format, function (data) {
@@ -44,7 +51,7 @@ console.log('try this: curl ' + lhost + '/hello\n');
 console.log('or server test: curl ' + testhost + '/hello');
 
 console.log('-----------------------------------\n');
-var m = '/monitoring\n';
+var m = '/monitoring/json\n';
 console.log('try this: curl ' + lhost + m);
 console.log('or server test: curl ' + testhost + m);
 
@@ -54,7 +61,7 @@ console.log('try this: curl ' + lhost + m);
 console.log('or server test: curl ' + testhost + m);
 
 console.log('-----------------------------------\n');
-var m = '/warning\n';
+var m = '/warning/json\n';
 console.log('try this: curl ' + lhost + m);
 console.log('or server test: curl ' + testhost + m);
 
@@ -65,6 +72,11 @@ console.log('or server test: curl ' + testhost + m);
 
 console.log('-----------------------------------\n');
 var m = '/amianto\n';
+console.log('try this: curl ' + lhost + m);
+console.log('or server test: curl ' + testhost + m);
+
+console.log('-----------------------------------\n');
+var m = '/taranto\n';
 console.log('try this: curl ' + lhost + m);
 console.log('or server test: curl ' + testhost + m);
 
