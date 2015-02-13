@@ -12,6 +12,15 @@ Restituisce i dati di monitoraggio ambientale giornalieri che hanno superato la 
 * json
 * geojson
 
+* [/taranto](http://openpuglia-prod.apigee.net/arpa/v1/taranto)
+Restituisce i dati di monitoraggio ambientale giornalieri della citta di Taranto con i dati meteo nei 7 giorni precedenti, in formato geojson.
+
+* [/amianto](http://openpuglia-prod.apigee.net/arpa/v1/amianto)
+Restituisce i siti di amianto nel territorio barese in formato geojson
+
+    [Dataset](http://dati.openbsk.it/dataset/amianto/resource/9eed961a-5e9a-4e21-89a9-c5a345fff65b)
+    [Info](http://opendatabari.github.io/blog/civic%20hacking/2013/11/24/come-organizzare-una-passeggiata-di-monitoraggio-una-ricerca-sullilva.html)
+
 ### JSON Response
 
 <pre>
