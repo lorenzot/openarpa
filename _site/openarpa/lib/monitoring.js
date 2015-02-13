@@ -4,6 +4,9 @@ $( document ).ready( function () {
     
     var type = getUrlParameter('type');
     var url = arpa_data.get(type, false);
+    var near_station;
+    var lat;
+    var lng;
     
     if (url != '') {
         console.log('change title...');
@@ -22,9 +25,6 @@ $( document ).ready( function () {
         maxzoom: zoom_default
     };
     
-    //var center = new L.LatLng(41.1112893, 16.8820664);
-    //var map = L.map("map").setView(center, 8);
-    
     var map = L.map("map", options_map);
         
     L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', 
@@ -36,12 +36,38 @@ $( document ).ready( function () {
     $("#poll").empty();
     $("#warning").empty();
     $("#near").empty();
-        
-    var near_station;
-    var lat;
-    var lng;
-    
     $('#error').hide();
+    
+    // -------------------------------------
+    // Geolocation
+    map.locate(
+        {
+        setView: true, 
+        maxZoom: zoom_default
+    });
+    
+    function onLocationFound(e) {
+        lat = e.latlng.lat;
+        lng = e.latlng.lng;
+        var radius = e.accuracy / 2;
+
+        L.marker(e.latlng).addTo(map)
+            .bindPopup("La tua posizione").openPopup();
+
+        L.circle(e.latlng, radius).addTo(map);
+    };
+    map.on('locationfound', onLocationFound);
+    
+    function onLocationError(e) {
+        console.log(e.message);
+    }
+    map.on('locationerror', onLocationError);
+    // -------------------------------------
+    
+    function onlayerAdd(layer) {
+        console.log('layer added..' +  JSON.stringify(near_station));    
+    }
+    map.on('layeradd', onlayerAdd);
 
     console.log('getting data by ' + url);
     
@@ -51,17 +77,25 @@ $( document ).ready( function () {
         L.geoJson(geojson, {
             pointToLayer: function (feature, latlng) {
                 
+                var radius = 4;
+                
+                if (feature.properties.radius > 4) {
+                    radius = feature.properties.radius;        
+                };
+                
                 var options = {
                     opacity: 0.1,
                     clickable: true,
-                    color: getColorbyWarn(feature.properties.warning_value),
+                    color: feature.properties.color,
                     fillOpacity: 0.1
                 };
+                
+                checkNearStation(feature);
 
                 console.log(JSON.stringify(feature.properties));
                 
                 var circle_point = L.circleMarker(latlng, options);
-                circle_point.setRadius(feature.properties.radius);
+                circle_point.setRadius(radius);
                 circle_point.bindPopup(feature.properties.title);
                 
                 return circle_point;
@@ -78,10 +112,79 @@ $( document ).ready( function () {
         $('#loader_div').show();    
     });  
         
-    function add_marker_station(station) {
-        var point = L.LatLng(station.lat, station.lng);
-        var marker = L.marker(point).addTo(map);
+    function checkNearStation(feature) {
+        // controllo la distanza con le coordinate
+        if (typeof near_station === 'undefined') {
+            near_station = feature;    
+        } else {
+            var d1 = distance(lat, 
+                             lng, 
+                             feature.properties.lat, 
+                             feature.properties.lng);  
+            var d2 = distance(lat, 
+                             lng, 
+                             near_station.properties.lat, 
+                             near_station.properties.lng);
+            
+            if (d1 < d2) {
+                near_station = feature;    
+            }
+        }
     };
+    
+    function getJSON(url, callback) {
+    
+    $('#error_msg').empty();
+        
+    var jqxhr = $.getJSON( url, function() {
+        console.log( "success" );
+    })
+    .done(function(data) {
+        if (typeof callback === 'function') {
+            callback(data);
+        }
+    })
+    .fail(function() {
+        $('#error_msg').html('non riesco a caricare i dati.');
+        if (typeof callback === 'function') {
+            callback(null);
+        }
+    })
+    .always(function() {
+        console.log( "complete" );
+        $('#loader_div').hide();
+    });
+ 
+    // Set another completion function for the request above
+    jqxhr.complete(function() {
+        console.log( "aggiungo centralina meteo più vicina" );
+        
+        /*
+        
+        {"type":"Feature","properties":{"id":"65","centralina":"Casamassima","descrizione":"Via Lapenna","lat":40.953154,"lng":16.920731,"comune":"Casamassima","inquinanti":"PM10, NO2, O3","warning_value":0.16,"warning_poll":"PM10","color":"#000000","radius":0.64,"opacity":0.1,"title":"<h4>PM10 0.16</h4><h5>Casamassima - Casamassima </h5>","values":[{"centralina":"Casamassima","prov":"Bari","comune":"Casamassima","valore":8,"ngiorni":0,"warning":0.16,"level":"8 µg/m³ (50µg/m³)","poll":"PM10","location":{"lat":40.953154,"lng":16.920731},"weather":{}}]},"geometry":{"type":"Point","coordinates":[16.920731,40.953154]}}
+        
+        */
+        
+        var centralina = L.AwesomeMarkers.icon({
+            icon: 'cube',
+            // prefix: 'fa',
+            markerColor: 'red'
+        });
+
+        var latlng = new L.LatLng(near_station.properties.lat, 
+                                  near_station.properties.lng);
+        
+        var title = near_station.properties.title + 
+                    '<br /> centralina più vicina';
+        
+        L.marker(latlng, {
+            icon: centralina
+        }).addTo(map).bindPopup(near_station.properties.title);
+        
+        console.log('layer added..' +  JSON.stringify(near_station));
+    });
+    
+};
     
 });
 
@@ -217,34 +320,4 @@ function getColorbyPoll(poll) {
     console.log('checking color ' + poll + ' - ' + color);
 
     return color;
-};
-
-function getJSON(url, callback) {
-    
-    $('#error_msg').empty();
-        
-    var jqxhr = $.getJSON( url, function() {
-        console.log( "success" );
-    })
-    .done(function(data) {
-        if (typeof callback === 'function') {
-            callback(data);
-        }
-    })
-    .fail(function() {
-        $('#error_msg').html('non riesco a caricare i dati.');
-        if (typeof callback === 'function') {
-            callback(null);
-        }
-    })
-    .always(function() {
-        console.log( "complete" );
-        $('#loader_div').hide();
-    });
- 
-    // Set another completion function for the request above
-    jqxhr.complete(function() {
-        console.log( "second complete" );
-    });
-    
 };

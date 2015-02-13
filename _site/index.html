@@ -15,7 +15,7 @@
 <body>
   <div class="container">
     <h1><a href="./">openARPA</a></h1>
-    <h3>0.2.0</h3>
+    <h3>0.2.1</h3>
     <hr />  
     <p><a href="http://opendatabari.github.io/openpuglia">openARPA</a> ha l’obiettivo di fornire dati aperti dell’agenzia regionale pugliese <a href="http://www.arpa.puglia.it/web/guest/arpa_home">ARPA</a> preposta all’esercizio di attività e compiti in materia di prevenzione e tutela ambientale.</p>
 
@@ -64,7 +64,16 @@
 
 <ul>
   <li>
-    <p><a href="http://openpuglia-prod.apigee.net/arpa/v1/warning/json">/warning/json</a>: Monitoraggio giornaliero dei dati sulla qualità dell’aria che hanno superato il valore limite.</p>
+    <p><a href="http://openpuglia-prod.apigee.net/arpa/v1/monitoring/json">/monitoring/json</a>: Monitoraggio giornaliero dei dati sulla qualità dell’aria completo di dato meteo.</p>
+  </li>
+  <li>
+    <p><a href="http://openpuglia-prod.apigee.net/arpa/v1/monitoring/geojson">/monitoring/geojson</a>: Monitoraggio giornaliero dei dati sulla qualità dell’aria in formato <a href="http://geojson.org">geojson</a></p>
+
+    <p><a href="http://127.0.0.1:4000/openarpa/index.html?type=monitoring">Demo</a>
+  <a href="https://github.com/opendatabari/openARPA">Info</a></p>
+  </li>
+  <li>
+    <p><a href="http://openpuglia-prod.apigee.net/arpa/v1/warning/json">/warning/json</a>: Monitoraggio giornaliero dei dati sulla qualità dell’aria che hanno superato il valore limite, completi di dati meteo.</p>
   </li>
   <li>
     <p><a href="http://openpuglia-prod.apigee.net/arpa/v1/warning/geojson">/warning/geojson</a>: Monitoraggio giornaliero dei dati sulla qualità dell’aria che hanno superato il valore limite, in formato <a href="http://geojson.org">geojson</a>.</p>
