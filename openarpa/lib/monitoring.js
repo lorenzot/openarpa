@@ -166,8 +166,8 @@ $( document ).ready( function () {
         */
         
         var centralina = L.AwesomeMarkers.icon({
-            icon: 'cube',
-            // prefix: 'fa',
+            icon: 'glyphicon-screenshot',
+            prefix: 'glyphicon',
             markerColor: 'red'
         });
 
@@ -259,7 +259,7 @@ var arpa_data = {
 
 function getColorbyWarn(warn) {
     
-    var color;
+    var color = '#000000';
     
     if (warn < 1) {
         color = '#00FF00';
