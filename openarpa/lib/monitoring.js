@@ -94,9 +94,11 @@ $( document ).ready( function () {
 
                 console.log(JSON.stringify(feature.properties));
                 
+                var title = feature.properties.title;
+                
                 var circle_point = L.circleMarker(latlng, options);
                 circle_point.setRadius(radius);
-                circle_point.bindPopup(feature.properties.title);
+                circle_point.bindPopup(title);
                 
                 return circle_point;
             }
@@ -184,7 +186,7 @@ $( document ).ready( function () {
         console.log('layer added..' +  JSON.stringify(near_station));
     });
     
-};
+    };
     
 });
 
@@ -223,7 +225,32 @@ function getUrlParameter(sParam)
             return sParameterName[1];
         }
     }
-};  
+}; 
+
+function get_direction_wind(degree) {
+    var wind_dir;
+    
+    if (degree < 45) {
+        wind_dir = 'N';    
+    } else if (degree < 90) {
+        wind_dir = 'NE';
+    } else if (degree < 135) {
+        wind_dir = 'E';
+    } else if (degree < 180) {
+        wind_dir = 'SE';
+    } else if (degree < 225) {
+        wind_dir = 'S';
+    } else if (degree < 270) {
+        wind_dir = 'SW';
+    } else if (degree < 315) {
+        wind_dir = 'W';
+    } else {
+        wind_dir = 'NW';
+    };
+    
+    return wind_dir;
+    
+};
 
 var arpa_data = {
     url_monitoring: '/monitoring',
@@ -234,6 +261,7 @@ var arpa_data = {
     url_endpoints: 'http://openpuglia-test.apigee.net/arpa/v1',
     url_dataset: 'http://dati.openbsk.it/dataset/e1887afc-345a-43ae-b9f8-95b5515eb6df/resource/8df7cff6-7605-456d-9d33-238d7905c115/download/arpacentraline.geojson',
     url_amianto: '/amianto',
+    url_taranto: '/taranto',
     get: function(type, localhost) {
         var self = this;
         
@@ -249,6 +277,8 @@ var arpa_data = {
             url += self.url_warning_geojson;
         } else if (type == 'amianto') {
             url += self.url_amianto;   
+        } else if (type == 'taranto'){
+            url += self.url_taranto;
         } else {
             url = '';   
         }

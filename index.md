@@ -52,13 +52,29 @@ layout: default
     [Demo]({{ site.url }}/openarpa/index.html?type=warning)
     [Info](https://github.com/opendatabari/openARPA)
 
+* [/taranto](http://openpuglia-prod.apigee.net/arpa/v1/taranto): Monitoraggio giornaliero dei dati sulla qualità dell'aria sulla città di Taranto, completo di dati meteo nei 7 giorni precedenti, in formato [geojson](http://geojson.org).
+
+    [Demo]({{ site.url }}/openarpa/index.html?type=taranto)
+    [Info](https://github.com/opendatabari/openARPA)
+
 * [/amianto](http://openpuglia-prod.apigee.net/arpa/v1/amianto): Restituisce dati geojson per visualizzare una mappa con tutti i siti inquinanti di amianto
 
     [Dataset](http://dati.openbsk.it/dataset/amianto/resource/9eed961a-5e9a-4e21-89a9-c5a345fff65b)
     [Info](http://opendatabari.github.io/blog/civic%20hacking/2013/11/24/come-organizzare-una-passeggiata-di-monitoraggio-una-ricerca-sullilva.html)
     [Demo]({{ site.url }}/openarpa/index.html?type=amianto)
+    
+* [/prevision/:lat/:lng/:limit/:format](http://openpuglia-prod.apigee.net/arpa/v1/prevision/40.4391506/17.2503822/hour/json)
+Restituisce un json, oppure geojson, con i dati di rilevamento della qualità dell'aria più vicina, con le previsioni meteo.
 
+    * ´lat´: latitudine
+    * ´lng´: longitudine
+    * ´limit´: ´hour´ per le previsioni meteo nei prossimi 5 giorni per ore, ´daily´ per le previsioni meteo nei prossimi 16 giorni
+    * ´format´: ´json´ oppure ´geojson´
+    
 * /history (coming soon...): Visualizzazione serie storica giornaliera e confronto con le serie storiche degli anni precedenti.
+
+    [Dataset](http://dati.openbsk.it/organization/openbari)
+    
 
 ## Dipendenze
 * [openarpa-scrape](https://github.com/opendatabari/openARPA-scrape) 
@@ -72,9 +88,6 @@ openPuglia ([Web](http://opendatabari.github.io/openpuglia)/[Blog](http://openda
 ## Developers
 
 * Vincenzo Patruno, Data Analyst [GitHub](https://github.com/patrunomeister)
-* Pietro Blu Giandonato, Data Analyst [Mail](mailto:p.giandonato@gmail.com)
-* Catonano Vincenzo, Data Analyst [Mail](mailto:catonano@gmail.com)
-* Marco Fago - IT Engineering [GitHub](https://github.com/marfago)
 * Giuseppe Zileni - Developers, API Designer, Web Specialist ([Twitter](http://twitter.com/gzileni)/[GitHub](http://github.com/giuseppezileni)/[G+](https://plus.google.com/u/0/+GiuseppeZileni/posts)).
 
 ### License
