@@ -42,6 +42,18 @@ app.get('/warning/:format', function(req, res) {
     });
 });
 
+app.get('/prevision/:lat/:lng/:limit/:format', function(req, res) {
+    res.writeHead(200, {"Content-Type" : "application/json"});
+    openarpa.prevision(req.params.format, 
+                       req.params.lat, 
+                       req.params.lng, 
+                       req.params.limit, 
+                       function (data) {
+        console.log('response ---> ' + JSON.stringify(data));
+        res.end(JSON.stringify(data) + '\n');    
+    });
+});
+
 app.all('*', proxy.run);
 
 var lhost = 'http://localhost:' + port;
@@ -77,6 +89,11 @@ console.log('or server test: curl ' + testhost + m);
 
 console.log('-----------------------------------\n');
 var m = '/taranto\n';
+console.log('try this: curl ' + lhost + m);
+console.log('or server test: curl ' + testhost + m);
+
+console.log('-----------------------------------\n');
+var m = '/prevision/40.4391506/17.2503822/hour/json\n';
 console.log('try this: curl ' + lhost + m);
 console.log('or server test: curl ' + testhost + m);
 
