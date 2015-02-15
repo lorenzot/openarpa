@@ -21,9 +21,9 @@ app.get('/amianto', function(req, res) {
     });
 });
 
-app.get('/taranto', function(req, res) {
+app.get('/taranto/:format', function(req, res) {
     res.writeHead(200, {"Content-Type" : "application/json"});
-    openarpa.taranto(function (data) {
+    openarpa.taranto(req.params.format, function (data) {
         res.end(JSON.stringify(data) + '\n');    
     });
 });
