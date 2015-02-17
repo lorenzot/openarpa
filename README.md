@@ -1,7 +1,15 @@
 # openARPA
 NodeJS Server API per i dati di monitoraggio ambientale di ARPA Puglia
 
-## API's
+## Installazione
+
+<pre>
+$ git clone https://github.com/opendatabari/openarpa.git
+$ cd openarpa-master/resource/node
+$ node server-usergrid.js
+</pre>
+
+## API Endpoints
 
 * [/monitoring/:format](http://openpuglia-prod.apigee.net/arpa/v1/monitoring)
 Restituisce i dati di monitoraggio ambientale giornalieri
@@ -196,10 +204,10 @@ Maggiori info sui dati json [OpenWeatherMap](http://openweathermap.org/api)
 
 Restituisce un json, oppure geojson, con i dati di rilevamento della qualità dell'aria più vicina, con le previsioni meteo.
 
-* ´lat´: latitudine
-* ´lng´: longitudine
-* ´limit´: ´hour´ per le previsioni meteo nei prossimi 5 giorni per 3 ore, ´daily´ per le previsioni meteo nei prossimi 16 giorni
-* ´format´: ´json´ oppure ´geojson´
+  * ´lat´: latitudine
+  * ´lng´: longitudine
+  * ´limit´: ´hour´ per le previsioni meteo nei prossimi 5 giorni per 3 ore, ´daily´ per le previsioni meteo nei prossimi 16 giorni
+  * ´format´: ´json´ oppure ´geojson´
 
 ## Response
 
