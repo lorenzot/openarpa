@@ -207,7 +207,7 @@ Restituisce un json, oppure geojson, con i dati di rilevamento della qualità de
   * lat: latitudine
   * lng: longitudine
   * limit: ´hour´ per le previsioni meteo nei prossimi 5 giorni per 3 ore, ´daily´ per le previsioni meteo nei prossimi 16 giorni
-  * ´format´: ´json´ oppure ´geojson´
+  * format: json/geojson
 
 ## Response
 
