@@ -14,11 +14,12 @@ $ node server-usergrid.js
 * [/monitoring/:format](http://openpuglia-prod.apigee.net/arpa/v1/monitoring)
 Restituisce i dati di monitoraggio ambientale giornalieri
 
+  * `format`: `json` oppure `geojson`
+
 * [/warning/:format](http://openpuglia-prod.apigee.net/arpa/v1/warning)
 Restituisce i dati di monitoraggio ambientale giornalieri che hanno superato la soglia limite. il parametro format indica il tipo di dato da restiruire:
 
-* json
-* geojson
+  * `format`: `json` oppure `geojson`
 
 * [/taranto](http://openpuglia-prod.apigee.net/arpa/v1/taranto)
 Restituisce i dati di monitoraggio ambientale giornalieri della citta di Taranto con i dati meteo nei 7 giorni precedenti, in formato geojson.
@@ -204,10 +205,10 @@ Maggiori info sui dati json [OpenWeatherMap](http://openweathermap.org/api)
 
 Restituisce un json, oppure geojson, con i dati di rilevamento della qualità dell'aria più vicina, con le previsioni meteo.
 
-  * lat: latitudine
-  * lng: longitudine
-  * limit: ´hour´ per le previsioni meteo nei prossimi 5 giorni per 3 ore, ´daily´ per le previsioni meteo nei prossimi 16 giorni
-  * format: json/geojson
+  * `lat`: latitudine
+  * `lng`: longitudine
+  * `limit`: `hour` per le previsioni meteo nei prossimi 5 giorni per 3 ore, daily` per le previsioni meteo nei prossimi 16 giorni
+  * `format`: `json` oppure `geojson`
 
 ## Response
 
