@@ -204,10 +204,10 @@ Maggiori info sui dati json [OpenWeatherMap](http://openweathermap.org/api)
 
 Restituisce un json, oppure geojson, con i dati di rilevamento della qualità dell'aria più vicina, con le previsioni meteo.
 
-  * <pre>lat</pre>: latitudine
-  * <pre>lng</pre>: longitudine
-  * <pre>limit</pre>: <pre>hour</pre> per le previsioni meteo nei prossimi 5 giorni per 3 ore, <pre>daily</pre> per le previsioni meteo nei prossimi 16 giorni
-  * <pre>format</pre>: <pre>json</pre> oppure ´geojson´
+  * lat: latitudine
+  * lng: longitudine
+  * limit: ´hour´ per le previsioni meteo nei prossimi 5 giorni per 3 ore, ´daily´ per le previsioni meteo nei prossimi 16 giorni
+  * ´format´: ´json´ oppure ´geojson´
 
 ## Response
 
